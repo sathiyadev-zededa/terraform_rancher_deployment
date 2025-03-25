@@ -29,6 +29,7 @@ This Terraform project automates the provisioning of resources using the Zededa 
 ├── outputs.tf                 # Outputs from Terraform
 └── README.md                  # Project documentation
 
+
 #### Initialize terraform:
 
 terraform init
