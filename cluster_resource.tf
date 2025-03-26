@@ -27,7 +27,8 @@ resource "null_resource" "wait_for_cluster_active" {
         done
         EOT
   }
-  depends_on = [rancher2_cluster.cluster_create]
+  depends_on = [rancher2_cluster.cluster_create, zedcloud_application_instance.k3s_runtime_gpu]
+  
 }
 
 
