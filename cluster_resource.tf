@@ -40,18 +40,18 @@ module "rancher_users" {
   cluster_instance_id = rancher2_cluster.cluster_create.id
 }
 
-//resource "rancher2_catalog_v2" "hardhat" {
-//    depends_on = [null_resource.wait_for_cluster_active]
-//    cluster_id = rancher2_cluster.cluster_create.id
-//    name = "hardhat-detection"
-//    url = "https://sathiyadev84.github.io/edgeai/charts"
-//}
+resource "rancher2_catalog_v2" "hardhat" {
+    depends_on = [null_resource.wait_for_cluster_active]
+    cluster_id = rancher2_cluster.cluster_create.id
+    name = "hardhat-detection"
+    url = "https://sathiyadev84.github.io/edgeai/charts"
+}
 
-//resource "rancher2_app_v2" "my_hardhat" {
-//    depends_on = [null_resource.wait_for_cluster_active, rancher2_catalog_v2.hardhat]
-//    cluster_id = rancher2_cluster.cluster_create.id
-//    name = "hardhat"
-//    namespace = "default"
-//    repo_name = "hardhat-detection"
-//    chart_name = "my-hardhat"
-//}
+resource "rancher2_app_v2" "my_hardhat" {
+    depends_on = [null_resource.wait_for_cluster_active, rancher2_catalog_v2.hardhat]
+    cluster_id = rancher2_cluster.cluster_create.id
+    name = "hardhat"
+    namespace = "default"
+    repo_name = "hardhat-detection"
+    chart_name = "my-hardhat"
+}
